@@ -11,7 +11,7 @@ import cv2
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
-
+'''
 class InvalidException(Exception):
     status_code = 500
 
@@ -65,6 +65,16 @@ def detect_face():
         resp = jsonify(response)
         resp.status_code = 500
         return resp
+'''
 
+@app.route('/api/task', methods=['POST'])
+def create_task():
+    request_data = request.get_json()
+    #tasksData = json.loads(tasksJSON)
+    request_data["size"]=40
+    #tasksData.append(request_data['task'])
+    return json.dumps(request_data);    
+    
+    
 if __name__ == '__main__':
     app.run()
