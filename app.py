@@ -65,7 +65,7 @@ def detect_face():
         resp = jsonify(response)
         resp.status_code = 500
         return resp
-'''
+
 
 @app.route('/api/task', methods=['POST'])
 def create_task():
@@ -75,6 +75,10 @@ def create_task():
     #tasksData.append(request_data['task'])
     return json.dumps(request_data);    
     
+'''
     
+@app.route("/")
+def hello():
+    return "Welcome to machine learning model APIs!"
 if __name__ == '__main__':
     app.run()
