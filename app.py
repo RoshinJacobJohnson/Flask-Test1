@@ -26,8 +26,8 @@ def predict():
     result = {
         'mpg_prediction': 23
     }
-    return jsonify(result)
-
+    #return jsonify(result)
+    return "Testing"
 
 
 # Annotation that allows the function to be hit at the specific URL.
