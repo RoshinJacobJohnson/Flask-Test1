@@ -21,8 +21,9 @@ def add():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-    data=request.data)
+    #data = request.get_json()
+    data=request.data
+    #data=request.args
     #size=request.form['size']
     #size=data['size']
     size='L'
