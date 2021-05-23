@@ -21,12 +21,12 @@ def add():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    vehicle = request.get_json()
-    #vehicle=request.form['vehicle']
-
+    data = request.get_json()
+    #size=request.form['size']
+    size=data['size']
 
     result = {
-        'mpg_prediction': 23
+        'shirt-size': size
     }
     return jsonify(result)
     #return "Testing"
