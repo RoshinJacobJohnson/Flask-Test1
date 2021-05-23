@@ -21,7 +21,7 @@ def add():
 @app.route('/predict', methods=['POST'])
 def predict():
     #vehicle = request.get_json()
-    vehicle=request.form['vehicle']
+    #vehicle=request.form['vehicle']
 
 
     result = {
