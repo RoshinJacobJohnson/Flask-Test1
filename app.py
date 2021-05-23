@@ -23,8 +23,8 @@ def add():
 def predict():
     data = request.get_json()
     #size=request.form['size']
-    size=data['size']
-
+    #size=data['size']
+    size='L'
     result = {
         'shirt-size': size
     }
