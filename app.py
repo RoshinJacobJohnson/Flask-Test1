@@ -29,7 +29,7 @@ def predict():
     data = request.get_json()
     size=data["size"]
     result = {
-        'shirt-size': data
+        'shirt-size': size
     }
     return jsonify(result)
     #return "Testing"
