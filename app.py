@@ -4,6 +4,7 @@
 from flask import Flask
 from flask import jsonify,request
 
+from get_measurements import measurements
 # Creating a new "app" by using the Flask constructor. Passes __name__ as a parameter.
 app = Flask(__name__)
 
@@ -28,9 +29,9 @@ def predict():
     #size=data['size']
     data = request.get_json()
     size=data["size"]
-    result = {
-        'shirt-size': size
-    }
+    fitness=data["fitness"]
+    result=measurements(fitness,size)
+    #result = {    'shirt-size': size }
     return jsonify(result)
     #return "Testing"
 
