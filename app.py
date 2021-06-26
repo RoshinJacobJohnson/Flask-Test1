@@ -3,7 +3,7 @@
 # Import the Flask module that has been installed.
 from flask import Flask
 from flask import jsonify,request
-
+import base64
 from get_measurements import measurements
 # Creating a new "app" by using the Flask constructor. Passes __name__ as a parameter.
 app = Flask(__name__)
@@ -30,6 +30,8 @@ def predict():
     data = request.get_json()
     size=data["size"]
     fitness=data["fitness"]
+    image_b=data["image_as_base64"]
+    image_bytes=base64.decodebytes(image_b)
     result=measurements(fitness,size)
     #result = {    'shirt-size': size }
     return jsonify(result)
