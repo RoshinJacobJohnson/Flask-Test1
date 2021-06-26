@@ -30,11 +30,12 @@ def predict():
     data = request.get_json()
     size=data["size"]
     fitness=data["fitness"]
-    image_b=data["image_as_base64"]
-    image_bytes=base64.decodebytes(image_b)
+    #image_b=data["image_as_base64"]
+    #image_bytes=base64.decodebytes(image_b)
     result=measurements(fitness,size)
-    #result = {    'shirt-size': size }
-    return jsonify(result)
+    return data.keys()
+    
+    #return jsonify(result)
     #return "Testing"
 
 
