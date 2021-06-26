@@ -33,9 +33,9 @@ def predict():
     #image_b=data["image_as_base64"]
     #image_bytes=base64.decodebytes(image_b)
     result=measurements(fitness,size)
-    return data.keys()
+    #return data.keys()
     
-    #return jsonify(result)
+    return jsonify(result)
     #return "Testing"
 
 
