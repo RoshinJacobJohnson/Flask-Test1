@@ -38,7 +38,7 @@ def predict():
 
 
 @app.route('/predictdefault', methods=['POST'])
-def predict():
+def predictdefault():
     #data = request.get_json()
     #data=request.data
     #data=request.args
