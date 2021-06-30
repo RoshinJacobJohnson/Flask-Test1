@@ -18,8 +18,6 @@ def add():
 
 
 
-
-
 @app.route('/predict', methods=['POST'])
 def predict():
     #data = request.get_json()
@@ -33,6 +31,22 @@ def predict():
     imageString = base64.b64decode(data['img'])
     #image_b=data["image_as_base64"]
     #image_bytes=base64.decodebytes(image_b)
+    result=measurements(fitness,size)
+    #return data.keys()
+    
+    return jsonify(result)
+
+
+@app.route('/predict_default', methods=['POST'])
+def predict():
+    #data = request.get_json()
+    #data=request.data
+    #data=request.args
+    #size=request.form['size']
+    #size=data['size']
+    data = request.get_json()
+    size=data["size"]
+    fitness=data["fitness"]
     result=measurements(fitness,size)
     #return data.keys()
     
