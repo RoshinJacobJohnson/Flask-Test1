@@ -5,6 +5,7 @@ from flask import Flask
 from flask import jsonify,request
 import base64
 from get_measurements import measurements
+import image_measurements
 # Creating a new "app" by using the Flask constructor. Passes __name__ as a parameter.
 app = Flask(__name__)
 
@@ -29,11 +30,26 @@ def predict():
     size=data["size"]
     fitness=data["fitness"]
     imageString = base64.b64decode(data['img'])
+    try:
+        chest,waist, hip, cuffs= image_measurements.measure(imageString)
+    except:
+        chest,waist, hip, cuffs=0,0,0,0
+    
+    
     #image_b=data["image_as_base64"]
     #image_bytes=base64.decodebytes(image_b)
     result=measurements(fitness,size)
     #return data.keys()
-    
+    if(abs(result["chest"]-chest)<1.6):
+        result["chest"]=chest
+      
+    if(abs(result["waist"]-waist)<2):
+        result["waist"]=waist
+    if(abs(result["hip"]-hip)<2):
+        result["hip"]=hip
+        
+    if(abs(result["cuffs"]-cuffs)<0.4):
+        result["cuffs"]=cuffs
     return jsonify(result)
 
 

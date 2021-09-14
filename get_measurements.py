@@ -17,3 +17,5 @@ def measurements(fitness,size):
     dimns["sleeve_width_armpit"]=df2["Sleeve Width (At Armpit)"].tolist()[0]
     dimns["short_sleeve_length"]=df2["Short Sleeve Length"].tolist()[0]
     return dimns
+
+
